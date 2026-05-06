@@ -5,6 +5,7 @@ import LoanTiles from '@/components/LoanTiles'
 import OfferCards from '@/components/OfferCards'
 import Testimonials from '@/components/Testimonials'
 import Partners from '@/components/Partners'
+import AboutSection from '@/components/AboutSection'
 import Footer from '@/components/Footer'
 import ScrollRevealSection from '@/components/ScrollRevealSection'
 
@@ -38,6 +39,10 @@ export default function Home() {
 
               <ScrollRevealSection delay={0}>
                 <Partners />
+              </ScrollRevealSection>
+
+              <ScrollRevealSection delay={0}>
+                <AboutSection />
               </ScrollRevealSection>
             </div>
           </section>

@@ -92,8 +92,8 @@ const translations = {
     'features.promiseBackLine2': 'T&C*',
 
     // Carousel
-    'carousel.instantLoan': 'Used Car Loan',
-    'carousel.instantLoanDesc': 'Get the best deals on used car financing with competitive interest rates and flexible repayment options.',
+    'carousel.usedCarLoan': 'Used Car Loan',
+    'carousel.usedCarLoanDesc': 'Get the best deals on used car financing with competitive interest rates and flexible repayment options.',
     'carousel.overdraft': 'Overdraft',
     'carousel.personalLoans': 'Personal Loans',
     'carousel.personalLoansDesc': 'Whether it\'s for debt repayment or big life ambitions, a personal loan can be an excellent financial instrument.',
@@ -426,8 +426,8 @@ const translations = {
     'features.promiseBackLine2': 'T&C*',
 
     // Carousel
-    'carousel.instantLoan': 'पुरानी कार ऋण',
-    'carousel.instantLoanDesc': 'प्रतिस्पर्धी ब्याज दरों और लचीले पुनर्भुगतान विकल्पों के साथ पुरानी कार वित्तपोषण पर सर्वोत्तम सौदे प्राप्त करें।',
+    'carousel.usedCarLoan': 'पुरानी कार ऋण',
+    'carousel.usedCarLoanDesc': 'प्रतिस्पर्धी ब्याज दरों और लचीले पुनर्भुगतान विकल्पों के साथ पुरानी कार वित्तपोषण पर सर्वोत्तम सौदे प्राप्त करें।',
     'carousel.overdraft': 'ओवरड्राफ्ट',
     'carousel.personalLoans': 'व्यक्तिगत ऋण',
     'carousel.personalLoansDesc': 'चाहे वह ऋण चुकौती के लिए हो या बड़े जीवन के लक्ष्य, व्यक्तिगत ऋण एक उत्कृष्ट वित्तीय साधन हो सकता है।',

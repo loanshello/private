@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { BankOffer } from '@/data/bankOffers'
 import { useLanguage } from '@/contexts/LanguageContext'
 
-export type LoanCategorySlug = 'personal-loans' | 'business-loans' | 'instant-loan' | 'credit-cards' | 'home-loans' | 'gold-loans' | 'education-loans' | 'insurance' | 'overdraft' | 'overdraft-salaried' | 'overdraft-self-employed' | 'secure-loans' | 'used-car-loan' | 'balance-transfer' | 'professional-loans'
+export type LoanCategorySlug = 'personal-loans' | 'business-loans' | 'instant-loan' | 'credit-cards' | 'home-loans' | 'gold-loans' | 'education-loans' | 'insurance' | 'overdraft' | 'overdraft-salaried' | 'overdraft-self-employed' | 'loan-against-property' | 'used-car-loan' | 'balance-transfer' | 'professional-loans'
 
 interface BankListProps {
     offers: BankOffer[]
@@ -109,7 +109,8 @@ export default function BankList({ offers, categoryTitle, loanCategory }: BankLi
 
     const getRequirements = (bankName: string): string[] => {
         if (!loanCategory) return []
-        return reqMap[`${loanCategory}::${bankName}`] || []
+        const categoryKey = loanCategory === 'loan-against-property' ? 'secure-loans' : loanCategory
+        return reqMap[`${categoryKey}::${bankName}`] || []
     }
 
     return (

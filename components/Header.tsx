@@ -16,12 +16,10 @@ type NavLink = {
 
 const NAV_LINKS: NavLink[] = [
   { href: '/', labelKey: 'nav.home' },
-  { href: '/about-us', labelKey: 'nav.about' },
   { href: '/emi-calculator', labelKey: 'nav.emi' },
   { href: '/apply-for-loan', labelKey: 'nav.apply', highlight: true },
   { href: '/cibil-score', labelKey: 'nav.cibil' },
   { href: '/become-partner', labelKey: 'nav.partner' },
-  { href: '/talk-to-expert', labelKey: 'nav.contact' },
 ]
 
 type LoginModalType = 'employee' | 'customer' | 'partner' | null
@@ -386,12 +384,10 @@ export default function Header() {
               )}
             </div>
 
-            {/* ChatBot - hide on Talk to Expert page (has its own embedded chat) */}
-            {pathname !== '/talk-to-expert' && (
-              <div style={{ position: 'relative' }}>
-                <ChatBot showWhatsApp={false} showLabel={false} />
-              </div>
-            )}
+            {/* ChatBot */}
+            <div style={{ position: 'relative' }}>
+              <ChatBot showWhatsApp={false} showLabel={true} />
+            </div>
           </div>
         </div>
       </header>

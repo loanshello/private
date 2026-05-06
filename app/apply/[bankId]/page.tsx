@@ -57,7 +57,7 @@ const LOAN_TYPE_LABELS: Record<string, string> = {
   'overdraft': 'Overdraft',
   'overdraft-salaried': 'Salaried Overdraft',
   'overdraft-self-employed': 'Self-Employed Overdraft',
-  'secure-loans': 'Secure Loan',
+  'loan-against-property': 'Loan Against Property',
   'instant-loan': 'Used Car Loan',
   'used-car-loan': 'Used Car Loan',
   'balance-transfer': 'Balance Transfer',

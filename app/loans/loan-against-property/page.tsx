@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Calculate Loan against Property EMI with low interest rates. Leverage your property for better loan terms.',
 }
 
-export default function SecureLoansPage() {
+export default function LoanAgainstPropertyPage() {
   return (
     <>
       <Header />
@@ -21,9 +21,10 @@ export default function SecureLoansPage() {
           </div>
 
           <BankList
-  offers={bankOffers['secure-loans']}
-  categoryTitle={<>Banks &amp; NBFCs offering <span className="loan-title-shimmer">Loan against Property</span></>}
-/>
+            offers={bankOffers['loan-against-property']}
+            categoryTitle={<>Banks &amp; NBFCs offering <span className="loan-title-shimmer">Loan against Property</span></>}
+            loanCategory="loan-against-property"
+          />
         </div>
       </main>
       <Footer />

@@ -61,7 +61,7 @@ const LOAN_TYPES = [
   { id: 'gold', label: 'Gold Loans', category: 'gold-loans' as OfferCategory },
   { id: 'education', label: 'Education Loans', category: 'education-loans' as OfferCategory },
   { id: 'car', label: 'Used Car Loans', category: 'used-car-loan' as OfferCategory },
-  { id: 'lap', label: 'Loan Against Property', category: 'secure-loans' as OfferCategory },
+  { id: 'lap', label: 'Loan Against Property', category: 'loan-against-property' as OfferCategory },
   { id: 'bt', label: 'Balance Transfer', category: 'balance-transfer' as OfferCategory },
   { id: 'pro', label: 'Professional Loans', category: 'professional-loans' as OfferCategory },
   { id: 'od', label: 'Overdraft', category: 'overdraft' as OfferCategory },
@@ -855,12 +855,12 @@ function LoanChatBotInner({
           type="button"
           className="lc-toggle"
           onClick={() => setIsOpen(true)}
-          aria-label="Talk to an Expert"
+          aria-label="Chat"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
           </svg>
-          {showLabel && <span className="lc-toggle-label">Talk to an Expert</span>}
+          {showLabel && <span className="lc-toggle-label">Chat</span>}
         </button>
       )}
 

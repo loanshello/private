@@ -20,7 +20,7 @@ export type OfferCategory =
     | 'education-loans'
     | 'insurance'
     | 'overdraft'
-    | 'secure-loans'
+    | 'loan-against-property'
     | 'used-car-loan'
     | 'balance-transfer'
     | 'professional-loans'
@@ -383,8 +383,8 @@ export const bankOffers: Record<OfferCategory, BankOffer[]> = {
         { bankName: 'Poonawalla Fincorp', link: '#', internalApplySlug: 'poonawalla', logo: '/assets/images/partners/poonawalla.png', brandColor: '#1e88e5' },
         { bankName: 'Piramal Capital', link: '#', internalApplySlug: 'piramal', logo: '/assets/images/Piramal_Finance_logo.svg', brandColor: '#1565c0' },
     ],
-    // Secure Loans: 7 banks + 6 NBFCs
-    'secure-loans': [
+    // Loan Against Property: 7 banks + 6 NBFCs
+    'loan-against-property': [
         { bankName: 'ICICI Bank', link: '#', internalApplySlug: 'icici', logo: '/assets/images/partners/icici.svg', brandColor: '#b6401e' },
         { bankName: 'IndusInd Bank', link: '#', internalApplySlug: 'indusind', logo: '/assets/images/partners/indusind.jpeg', brandColor: '#C4122E' },
         { bankName: 'YES Bank', link: '#', internalApplySlug: 'yes', logo: '/assets/images/partners/yes.svg', brandColor: '#1e4f9c' },

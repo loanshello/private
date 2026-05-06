@@ -47,17 +47,8 @@ function InstantApplyContent() {
     consentPersonalizedOffers: false,
     consentPerfios: false,
     panNo: '',
-    panCard: null as File | null,
-    aadhaarCard: null as File | null,
-    payslip: null as File | null,
-    bankStatement: null as File | null,
-    additionalDoc: null as File | null,
-    addressProof: null as File | null,
   })
 
-  const [panPreview, setPanPreview] = useState<string | null>(null)
-  const [aadhaarPreview, setAadhaarPreview] = useState<string | null>(null)
-  const [filePreviews, setFilePreviews] = useState<Record<string, string | null>>({})
   const [openLegalModal, setOpenLegalModal] = useState<'privacy' | null>(null)
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -107,85 +98,11 @@ function InstantApplyContent() {
     }))
   }
 
-  type DocField = 'panCard' | 'aadhaarCard' | 'payslip' | 'bankStatement' | 'additionalDoc' | 'addressProof'
-
-  const DOC_LABELS: Record<DocField, string> = {
-    panCard: 'PAN Card',
-    aadhaarCard: 'Aadhaar Card',
-    payslip: 'Payslip',
-    bankStatement: 'Bank Statement',
-    additionalDoc: 'Additional Document',
-    addressProof: 'Address Proof',
-  }
-
-  const IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif']
-  const PDF_TYPES = ['application/pdf']
-  const ALL_DOC_TYPES = [...IMAGE_TYPES, ...PDF_TYPES]
-
-  const handleDocUpload = (e: React.ChangeEvent<HTMLInputElement>, field: DocField, allowPdf = false) => {
-    const file = e.target.files?.[0]
-    if (!file) return
-    const validTypes = allowPdf ? ALL_DOC_TYPES : IMAGE_TYPES
-    if (!validTypes.includes(file.type)) {
-      const formats = allowPdf ? 'JPG, PNG, WEBP, GIF, or PDF' : 'JPG, PNG, WEBP, or GIF'
-      alert(`Please upload a valid file (${formats}) for ${DOC_LABELS[field]}`)
-      e.target.value = ''
-      return
-    }
-    if (file.size > 2 * 1024 * 1024) {
-      alert(`File size must be under 2 MB for ${DOC_LABELS[field]}.`)
-      e.target.value = ''
-      return
-    }
-    setFormData(prev => ({ ...prev, [field]: file }))
-    if (field === 'panCard' || field === 'aadhaarCard') {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        if (field === 'panCard') setPanPreview(reader.result as string)
-        else setAadhaarPreview(reader.result as string)
-      }
-      reader.readAsDataURL(file)
-    } else if (file.type.startsWith('image/')) {
-      const reader = new FileReader()
-      reader.onloadend = () => setFilePreviews(prev => ({ ...prev, [field]: reader.result as string }))
-      reader.readAsDataURL(file)
-    } else {
-      setFilePreviews(prev => ({ ...prev, [field]: null }))
-    }
-  }
-
-  const removeDoc = (field: DocField) => {
-    setFormData(prev => ({ ...prev, [field]: null }))
-    if (field === 'panCard') setPanPreview(null)
-    else if (field === 'aadhaarCard') setAadhaarPreview(null)
-    else setFilePreviews(prev => ({ ...prev, [field]: null }))
-  }
-
-  const fileToBase64 = (file: File): Promise<string> =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.onloadend = () => resolve((reader.result as string).split(',')[1])
-      reader.onerror = reject
-      reader.readAsDataURL(file)
-    })
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!canProceed) return
     setIsSubmitting(true)
     try {
-      const toAttachment = async (file: File | null) => {
-        if (!file) return null
-        return { data: await fileToBase64(file), filename: file.name, contentType: file.type }
-      }
-      const [panCardAtt, aadhaarCardAtt, payslipAtt, bankStatementAtt, additionalDocAtt, addressProofAtt] = await Promise.all([
-        toAttachment(formData.panCard),
-        toAttachment(formData.aadhaarCard),
-        toAttachment(formData.payslip),
-        toAttachment(formData.bankStatement),
-        toAttachment(formData.additionalDoc),
-        toAttachment(formData.addressProof),
-      ])
       const response = await fetch('/api/bank-application', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -210,12 +127,6 @@ function InstantApplyContent() {
           consentPersonalData: formData.consentPersonalData,
           consentPersonalizedOffers: formData.consentPersonalizedOffers,
           consentPerfios: formData.consentPerfios,
-          panCard: panCardAtt,
-          aadhaarCard: aadhaarCardAtt,
-          payslip: payslipAtt,
-          bankStatement: bankStatementAtt,
-          additionalDoc: additionalDocAtt,
-          addressProof: addressProofAtt,
         }),
       })
       const data = await response.json()
@@ -233,51 +144,6 @@ function InstantApplyContent() {
     if (vectorBg) vectorBg.style.display = 'none'
     return () => { if (vectorBg) vectorBg.style.display = '' }
   }, [])
-
-  const renderFileUpload = (field: DocField, label: string, required: boolean, allowPdf: boolean, hint?: string) => {
-    const preview = field === 'panCard' ? panPreview : field === 'aadhaarCard' ? aadhaarPreview : filePreviews[field]
-    const file = formData[field]
-    const isPdf = file && !preview
-    const accept = allowPdf
-      ? 'image/jpeg,image/jpg,image/png,image/webp,image/gif,application/pdf'
-      : 'image/jpeg,image/jpg,image/png,image/webp,image/gif'
-    const hintText = allowPdf ? 'JPG, PNG, PDF (Max 2MB)' : 'JPG, PNG, WEBP (Max 2MB)'
-
-    return (
-      <div className="form-field-group">
-        <label className="form-field-label">
-          {label} {required && <span className="required-asterisk">*</span>}
-          {!required && <span className="form-optional-tag">(Optional)</span>}
-        </label>
-        {hint && <p className="form-hint-text" style={{ marginTop: '-2px', marginBottom: '8px' }}>{hint}</p>}
-        <div className="file-upload-wrapper">
-          <input type="file" id={field} accept={accept} onChange={(e) => handleDocUpload(e, field, allowPdf)} className="file-input-hidden" />
-          {file ? (
-            <div className="file-preview-container">
-              {preview ? (
-                <img src={preview} alt={`${label} Preview`} className="file-preview-image" />
-              ) : isPdf ? (
-                <div className="file-preview-pdf">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                  <span className="file-preview-name">{file.name}</span>
-                </div>
-              ) : null}
-              <button type="button" onClick={() => removeDoc(field)} className="file-remove-button">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                Remove
-              </button>
-            </div>
-          ) : (
-            <label htmlFor={field} className="file-upload-label">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-              <span className="file-upload-text">Upload {label}</span>
-              <span className="file-upload-hint">{hintText}</span>
-            </label>
-          )}
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div className="bank-app-page-wrapper hdfc-bank-theme" style={{ marginTop: 0, position: 'relative', minHeight: '100vh' }}>
@@ -329,10 +195,6 @@ function InstantApplyContent() {
                 <div className="detail-item">
                   <span className="detail-label">Date of Birth:</span>
                   <span className="detail-value">{formData.day}/{formData.month}/{formData.year}</span>
-                </div>
-                <div className="detail-item">
-                  <span className="detail-label">Source of Income:</span>
-                  <span className="detail-value">{formData.sourceOfIncome === 'salaried' ? 'Salaried' : 'Self Employed / Business'}</span>
                 </div>
                 {formData.email && (
                   <div className="detail-item">
@@ -403,19 +265,12 @@ function InstantApplyContent() {
                   <p className="form-hint-text">Format: 5 letters, 4 digits, 1 letter</p>
                 </div>
                 <div className="form-field-group">
-                  <label className="form-field-label">Source of Income <span className="required-asterisk">*</span></label>
+                  <label className="form-field-label">Source of Income</label>
                   <div className="radio-group-bank">
-                    <label className={`radio-option-bank ${formData.sourceOfIncome === 'salaried' ? 'selected' : ''}`}>
-                      <input type="radio" name="sourceOfIncome" value="salaried" checked={formData.sourceOfIncome === 'salaried'} onChange={handleChange} required />
+                    <label className="radio-option-bank selected" style={{ cursor: 'default', pointerEvents: 'none' }}>
+                      <input type="radio" name="sourceOfIncome" value="salaried" checked readOnly />
                       <div className="radio-content">
                         <span className="radio-label">Salaried</span>
-                        {formData.sourceOfIncome === 'salaried' && <div className="info-box-yellow">Salary proof may be required for processing</div>}
-                      </div>
-                    </label>
-                    <label className={`radio-option-bank ${formData.sourceOfIncome === 'self-employed' ? 'selected' : ''}`}>
-                      <input type="radio" name="sourceOfIncome" value="self-employed" checked={formData.sourceOfIncome === 'self-employed'} onChange={handleChange} />
-                      <div className="radio-content">
-                        <span className="radio-label">Self Employed / Business</span>
                       </div>
                     </label>
                   </div>
@@ -426,36 +281,11 @@ function InstantApplyContent() {
                 </div>
               </div>
 
-              {/* 3A: KYC Documents */}
+              {/* 3: Address */}
               <div className="form-section">
                 <div className="form-section-label">
-                  <span className="form-section-number">3A</span>
-                  <span>KYC Documents</span>
-                </div>
-                <div className="form-uploads-row">
-                  <div className="form-field-half">{renderFileUpload('panCard', 'PAN Card', true, false)}</div>
-                  <div className="form-field-half">{renderFileUpload('aadhaarCard', 'Aadhaar Card', true, false)}</div>
-                </div>
-              </div>
-
-              {/* 3B: Income Documents */}
-              <div className="form-section">
-                <div className="form-section-label">
-                  <span className="form-section-number">3B</span>
-                  <span>Income Documents</span>
-                </div>
-                <div className="form-uploads-row">
-                  <div className="form-field-half">{renderFileUpload('payslip', 'Payslip', true, true)}</div>
-                  <div className="form-field-half">{renderFileUpload('bankStatement', 'Bank Statement', true, true)}</div>
-                </div>
-                {renderFileUpload('additionalDoc', 'Additional Documents', false, true, 'Form 16 / 26 AS, Previous Loan Statement, Repayment Schedule, etc.')}
-              </div>
-
-              {/* 4: Address */}
-              <div className="form-section">
-                <div className="form-section-label">
-                  <span className="form-section-number">4</span>
-                  <span>Current Address Proof</span>
+                  <span className="form-section-number">3</span>
+                  <span>Current Address</span>
                 </div>
                 <div className="form-uploads-row">
                   <div className="form-field-half">
@@ -471,7 +301,6 @@ function InstantApplyContent() {
                     </div>
                   </div>
                 </div>
-                {renderFileUpload('addressProof', 'Address Proof', true, true, 'Aadhaar Card, Rent Agreement, Electricity Bill, Voter ID, or Passport')}
               </div>
 
               {/* Consent & Submit */}
