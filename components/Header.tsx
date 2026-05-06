@@ -332,6 +332,11 @@ export default function Header() {
               )}
             </div>
 
+            {/* ChatBot */}
+            <div style={{ position: 'relative' }}>
+              <ChatBot showWhatsApp={false} showLabel={true} />
+            </div>
+
             {/* Language Switcher */}
             <div className="language-switcher">
               <button
@@ -382,11 +387,6 @@ export default function Header() {
                   ))}
                 </div>
               )}
-            </div>
-
-            {/* ChatBot */}
-            <div style={{ position: 'relative' }}>
-              <ChatBot showWhatsApp={false} showLabel={true} />
             </div>
           </div>
         </div>

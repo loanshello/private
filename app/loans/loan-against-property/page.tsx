@@ -5,8 +5,8 @@ import Footer from '@/components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Loan against Property Calculator | Zineegroup',
-  description: 'Calculate Loan against Property EMI with low interest rates. Leverage your property for better loan terms.',
+  title: 'Loan Against Property Calculator | Zineegroup',
+  description: 'Calculate Loan Against Property EMI with low interest rates. Leverage your property for better loan terms.',
 }
 
 export default function LoanAgainstPropertyPage() {
@@ -16,13 +16,13 @@ export default function LoanAgainstPropertyPage() {
       <main className="loan-page-main">
         <div className="loan-page-container">
           <div className="loan-page-header">
-            <h1><span className="loan-title-shimmer">Loan against</span> Property</h1>
+            <h1><span className="loan-title-shimmer">Loan Against</span> Property</h1>
             <p>Leverage your property to secure a loan with low interest rates and higher loan amounts.</p>
           </div>
 
           <BankList
             offers={bankOffers['loan-against-property']}
-            categoryTitle={<>Banks &amp; NBFCs offering <span className="loan-title-shimmer">Loan against Property</span></>}
+            categoryTitle={<>Banks &amp; NBFCs offering <span className="loan-title-shimmer">Loan Against Property</span></>}
             loanCategory="loan-against-property"
           />
         </div>

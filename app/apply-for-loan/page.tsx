@@ -17,7 +17,7 @@ const LOAN_TYPES = [
   'Credit Card',
   'Balance Transfer',
   'Overdraft',
-  'Loan against Property',
+  'Loan Against Property',
   'Insurance',
   'Used Car Loan',
 ] as const

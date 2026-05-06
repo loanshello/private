@@ -19,7 +19,7 @@ const loanTypes: Array<{
     { name: 'Personal Loans', slug: 'personal-loans', image: '/assets/icons/personal-loan.png', spriteCol: 0, spriteRow: 0 },
     { name: 'Business Loans', slug: 'business-loans', image: '/assets/icons/business-loan.jpeg', spriteCol: 1, spriteRow: 0 },
     { name: 'Overdraft', slug: 'overdraft', image: '/assets/icons/overdraft.jpeg', spriteCol: 2, spriteRow: 0 },
-    { name: 'Loan against Property', slug: 'loan-against-property', image: '/assets/icons/secured-loans.jpeg', spriteCol: 3, spriteRow: 0 },
+    { name: 'Loan Against Property', slug: 'loan-against-property', image: '/assets/icons/secured-loans.jpeg', spriteCol: 3, spriteRow: 0 },
     { name: 'Used Car Loan', slug: 'used-car-loan', image: '/assets/icons/instant-loan.jpeg', spriteCol: 2, spriteRow: 2 },
     { name: 'Balance Transfer', slug: 'balance-transfer', image: '/assets/icons/balance-transfer.jpeg', spriteCol: 0, spriteRow: 1 },
     { name: 'Professional Loans', slug: 'professional-loans', image: '/assets/icons/professional-loans.jpeg', spriteCol: 1, spriteRow: 1 },

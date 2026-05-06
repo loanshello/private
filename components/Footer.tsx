@@ -85,14 +85,14 @@ export default function Footer() {
                 <a href="mailto:info@zineegroup.com">info@zineegroup.com</a>
               </li>
               <li className="contact-item contact-item-address">
-                <a href="https://www.google.com/maps/search/Hello+Loans+B11+Shankar+Garden+New+Delhi+110018" target="_blank" rel="noopener noreferrer" className="contact-address">
+                <a href="https://www.google.com/maps/search/Hello+Loans+B11+Shankar+Garden+Vikaspuri+110018" target="_blank" rel="noopener noreferrer" className="contact-address">
                   <span className="contact-address-line1">
                     <svg className="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     B11, F/F, Shankar Garden
                   </span>
-                  <span className="contact-address-line2">New Delhi, Delhi 110018</span>
+                  <span className="contact-address-line2">Vikaspuri, Delhi 110018</span>
                   {/* <span className="contact-address-line3"></span> */}
                 </a>
               </li>

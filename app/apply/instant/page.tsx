@@ -26,6 +26,7 @@ function InstantApplyContent() {
 
   const loanTypeSlug = searchParams.get('loanType') || 'personal-loans'
   const loanLabel = LOAN_TYPE_LABELS[loanTypeSlug] || 'Personal Loan'
+  const defaultSourceOfIncome = loanTypeSlug === 'business-loans' ? 'self-employed' : 'salaried'
 
   const [formTitleLabel, setFormTitleLabel] = useState(loanLabel)
   useEffect(() => {
@@ -39,7 +40,7 @@ function InstantApplyContent() {
     day: '',
     month: '',
     year: '',
-    sourceOfIncome: 'salaried',
+    sourceOfIncome: defaultSourceOfIncome,
     employerName: '',
     pincode: '',
     city: '',
@@ -268,15 +269,15 @@ function InstantApplyContent() {
                   <label className="form-field-label">Source of Income</label>
                   <div className="radio-group-bank">
                     <label className="radio-option-bank selected" style={{ cursor: 'default', pointerEvents: 'none' }}>
-                      <input type="radio" name="sourceOfIncome" value="salaried" checked readOnly />
+                      <input type="radio" name="sourceOfIncome" value={defaultSourceOfIncome} checked readOnly />
                       <div className="radio-content">
-                        <span className="radio-label">Salaried</span>
+                        <span className="radio-label">{defaultSourceOfIncome === 'salaried' ? 'Salaried' : 'Business'}</span>
                       </div>
                     </label>
                   </div>
                 </div>
                 <div className="form-field-group">
-                  <label className="form-field-label">Employer Name</label>
+                  <label className="form-field-label">Buisness Name</label>
                   <input type="text" name="employerName" className="form-input" placeholder="e.g. Tata Consultancy Services" value={formData.employerName} onChange={handleChange} />
                 </div>
               </div>
