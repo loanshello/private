@@ -212,7 +212,7 @@ export default function ReviewsPage() {
                   <div className="write-review-info">
                     <div className="write-review-header-row">
                       <div className="write-review-logo">
-                        <Image src="/assets/images/Logo-Helloans.png" alt="Zinee Group" width={120} height={48} style={{ objectFit: 'contain' }} />
+                        <Image src="/assets/images/helloans-logo.png" alt="Helloans" width={120} height={48} style={{ objectFit: 'contain' }} />
                       </div>
                       <h2 className="write-review-title">{t('reviews.writeReview')}</h2>
                     </div>

@@ -1872,14 +1872,14 @@
 
 .testimonial-card {
     background: rgba(255, 255, 255, 0.88);
-    border-radius: 16px;
-    padding: 28px 24px 24px;
+    border-radius: 12px;
+    padding: 20px 18px 18px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     flex: 0 0 calc(33.333% - 16px);
-    max-width: 420px;
+    max-width: 320px;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -1910,34 +1910,34 @@
 
 .testimonial-text {
     color: #1e293b;
-    font-size: 28px;
-    line-height: 1.6;
-    margin: 4px 0 10px 0;
+    font-size: 13px;
+    line-height: 1.55;
+    margin: 2px 0 6px 0;
     font-weight: 400;
 }
 
 .testimonial-stars-row {
     display: flex;
     align-items: baseline;
-    gap: 8px;
+    gap: 6px;
 }
 
 .testimonial-stars {
     color: #facc15;
     /* gold */
-    letter-spacing: 2px;
-    font-size: 18px;
+    letter-spacing: 1px;
+    font-size: 14px;
 }
 
 .testimonial-rating {
     color: #1f2933;
-    font-size: 14px;
+    font-size: 11px;
     font-weight: 600;
 }
 
 .testimonial-divider {
-    margin-top: 20px;
-    margin-bottom: 8px;
+    margin-top: 12px;
+    margin-bottom: 6px;
     height: 1px;
     width: 100%;
     background: linear-gradient(to right, rgba(148, 163, 184, 0.4), rgba(148, 163, 184, 0));
@@ -1946,30 +1946,30 @@
 .testimonial-footer {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 4px;
+    gap: 8px;
+    margin-top: 2px;
 }
 
 .testimonial-footer-avatar {
-    font-size: 26px;
+    font-size: 20px;
 }
 
 .testimonial-avatar-initials {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.5px;
     line-height: 1;
 }
 
 .testimonial-footer-name {
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
     color: #111827;
 }

@@ -396,7 +396,7 @@ export default function BankApplicationPage({ params }: { params: { bankId: stri
       <div className="bank-apply-header" style={{ background: `linear-gradient(135deg, ${bank.color}, ${bank.primaryColor})` }}>
         <div className="bank-apply-header-inner">
           <div className="bank-apply-header-left">
-            <Image src="/assets/images/Logo-Helloans.png" alt="Zinee Group" width={110} height={38} className="bank-hero-logo zinee-logo" />
+            <Image src="/assets/images/helloans-logo.png" alt="Helloans" width={110} height={38} className="bank-hero-logo zinee-logo" />
             <span className="bank-apply-header-handshake">🤝</span>
             {bank.logo ? (
               <Image src={bank.logo} alt={bank.name} width={110} height={38} className="bank-hero-logo bank-partner-logo" />

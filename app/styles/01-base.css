@@ -75,12 +75,129 @@ h6 {
         0 2px 4px rgba(30, 64, 175, 0.08);
 }
 
-/* Global: 20% larger base font (rem/em scale) + layout */
+/* Global: Professional base font sizing + layout */
 html {
-    font-size: 120%;
+    font-size: 100%;
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
+}
+
+/* ==========================================================================
+   PROFESSIONAL TYPOGRAPHY SYSTEM
+   Consistent font sizes across the entire website
+   ========================================================================== */
+
+/* Section titles - consistent across all home page sections */
+.section-title,
+.loan-tiles-title,
+.testimonials-title,
+.trust-title,
+.partners-section .section-title {
+    font-family: var(--font-poppins), sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.5px !important;
+}
+
+/* Sub-titles and descriptions under section headers */
+.section-subtitle,
+.loan-tiles-subtitle,
+.testimonials-subtitle {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    line-height: 1.6 !important;
+    color: #64748b !important;
+}
+
+/* Card titles - consistent across testimonials, features, etc */
+.testimonial-footer-name,
+.feature-title,
+.trust-primary-text,
+.product-card h3 {
+    font-family: var(--font-poppins), sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+}
+
+/* Body text - descriptions, paragraphs */
+.testimonial-text,
+.feature-description,
+.trust-secondary-text,
+.company-description,
+.about-text,
+.product-desc {
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    line-height: 1.65 !important;
+}
+
+/* Small labels and metadata */
+.testimonial-rating,
+.review-date,
+.footer-list a,
+.footer-locations li {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+/* Navigation and buttons */
+.nav-link-label {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+
+/* Loan tile labels */
+.loan-tile-label {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 1024px) {
+    .section-title,
+    .loan-tiles-title,
+    .testimonials-title,
+    .trust-title {
+        font-size: 28px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title,
+    .loan-tiles-title,
+    .testimonials-title,
+    .trust-title {
+        font-size: 24px !important;
+    }
+    
+    .testimonial-footer-name,
+    .feature-title,
+    .trust-primary-text {
+        font-size: 16px !important;
+    }
+    
+    .testimonial-text,
+    .feature-description,
+    .trust-secondary-text {
+        font-size: 14px !important;
+    }
+    
+    .loan-tile-label {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title,
+    .loan-tiles-title,
+    .testimonials-title,
+    .trust-title {
+        font-size: 22px !important;
+    }
 }
 
 /* Global: all text black */

@@ -1,8 +1,11 @@
 'use client'
 
-import EmiCalculatorWithComparison, { CompareButton } from '@/components/EmiCalculatorWithComparison'
+import LoanCalculator from '@/components/LoanCalculator'
+import BankLoanComparison from '@/components/BankLoanComparison'
+import EmiEligibilityCalculator from '@/components/EmiEligibilityCalculator'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { CompareButton } from '@/components/EmiCalculatorWithComparison'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function EmiCalculatorPage() {
@@ -37,7 +40,37 @@ export default function EmiCalculatorPage() {
               </div>
               <p>{t('emi.pageDesc')}</p>
             </div>
-            <EmiCalculatorWithComparison />
+
+            {/* Side-by-side Calculators */}
+            <div className="emi-calculators-row">
+              {/* EMI Calculator */}
+              <div className="emi-calc-panel">
+                <div className="emi-calc-panel-header">
+                  <h2><span className="shimmer-text">EMI</span> Calculator</h2>
+                  <p>Calculate your monthly EMI for any loan amount</p>
+                </div>
+                <LoanCalculator
+                  loanType="Personal Loan"
+                  defaultBanks={[]}
+                  defaultInterestRate={10.5}
+                  minAmount={50000}
+                  maxAmount={999999999999}
+                  compact
+                />
+              </div>
+
+              {/* EMI Eligibility Calculator */}
+              <div className="emi-calc-panel">
+                <div className="emi-calc-panel-header">
+                  <h2><span className="shimmer-text">Eligibility</span> Calculator</h2>
+                  <p>Find out how much loan you can afford</p>
+                </div>
+                <EmiEligibilityCalculator compact />
+              </div>
+            </div>
+
+            {/* Bank Comparison Section - Full Width Below */}
+            <BankLoanComparison />
           </div>
         </main>
         <Footer />

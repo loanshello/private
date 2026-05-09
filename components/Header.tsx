@@ -17,7 +17,6 @@ type NavLink = {
 const NAV_LINKS: NavLink[] = [
   { href: '/', labelKey: 'nav.home' },
   { href: '/emi-calculator', labelKey: 'nav.emi' },
-  { href: '/apply-for-loan', labelKey: 'nav.apply', highlight: true },
   { href: '/cibil-score', labelKey: 'nav.cibil' },
   { href: '/become-partner', labelKey: 'nav.partner' },
 ]
@@ -182,8 +181,8 @@ export default function Header() {
           <Link href="/" className="logo logo-glass-wrap">
             <span className="logo-glass-inner">
               <Image
-                src="/assets/images/Logo-Helloans.png"
-                alt="Company Logo"
+                src="/assets/images/helloans-logo.png"
+                alt="Helloans Logo"
                 width={200}
                 height={68}
                 priority

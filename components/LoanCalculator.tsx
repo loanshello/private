@@ -24,6 +24,8 @@ interface LoanCalculatorProps {
   defaultBanks?: any[]
   /** Called when loan amount, tenure or tenure unit changes (e.g. for comparison section). */
   onParamsChange?: (params: LoanCalculatorParams) => void
+  /** Compact mode for side-by-side layout */
+  compact?: boolean
 }
 
 const formatNumber = (amount: number) => {
@@ -38,6 +40,7 @@ export default function LoanCalculator({
   maxAmount = 10000000,
   defaultInterestRate = 10.5,
   onParamsChange,
+  compact = false,
 }: LoanCalculatorProps) {
   const { t } = useLanguage()
   const { getDefaultRate, isLoading: ratesLoading } = useBankRates()
@@ -163,16 +166,6 @@ export default function LoanCalculator({
   const INTEREST_COLOR_PIE = '#dc2626'   // Red for interest
   const PIE_COLORS = [PRINCIPAL_COLOR_PIE, INTEREST_COLOR_PIE]
 
-  const OLIVE_GREEN = '#6b8e23'
-
-  // Generic Input Handler
-  const handleAmountChange = (val: string) => {
-    const num = Number(val)
-    if (!isNaN(num)) setAmount(Math.min(maxAmount, Math.max(minAmount, num)))
-  }
-
-
-
   // Custom Tooltip to ensure readability of "Total Interest"
   const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
@@ -198,6 +191,136 @@ export default function LoanCalculator({
     return null
   }
 
+  if (compact) {
+    return (
+      <div className="loan-calculator-compact">
+        <div className="emi-compact-inputs">
+          {/* Amount Input */}
+          <div className="emi-compact-input-group">
+            <label className="emi-compact-label">{t('emi.loanAmount')}</label>
+            <div className="emi-compact-input-wrap">
+              <span className="emi-compact-currency"><RupeeIcon size={14} /></span>
+              <input
+                type="text"
+                value={amount.toLocaleString('en-IN')}
+                onChange={(e) => {
+                  const val = e.target.value.replace(/,/g, '')
+                  if (!isNaN(Number(val))) setAmount(Number(val))
+                }}
+                onBlur={() => {
+                  if (amount < minAmount) setAmount(minAmount)
+                  if (amount > maxAmount) setAmount(maxAmount)
+                }}
+                className="emi-compact-input"
+              />
+            </div>
+          </div>
+
+          {/* Interest Rate Input */}
+          <div className="emi-compact-input-group">
+            <label className="emi-compact-label">{t('emi.rateOfInterest')}</label>
+            <div className="emi-compact-input-wrap">
+              <input
+                type="number"
+                value={interestRate}
+                onChange={(e) => setInterestRate(Number(e.target.value))}
+                className="emi-compact-input"
+              />
+              <span className="emi-compact-suffix">%</span>
+            </div>
+          </div>
+
+          {/* Tenure Input */}
+          <div className="emi-compact-input-group">
+            <label className="emi-compact-label">{t('emi.loanTenure')}</label>
+            <div className="emi-compact-tenure-row">
+              <div className="emi-compact-input-wrap tenure">
+                <input
+                  type="number"
+                  value={tenure}
+                  onChange={(e) => setTenure(Number(e.target.value))}
+                  className="emi-compact-input"
+                />
+              </div>
+              <div className="emi-compact-toggle">
+                <button
+                  type="button"
+                  className={`emi-compact-toggle-btn ${tenureUnit === 'Yr' ? 'active' : ''}`}
+                  onClick={() => {
+                    if (tenureUnit === 'Mo') setTenure(Math.max(1, Math.round(tenure / 12)))
+                    setTenureUnit('Yr')
+                  }}
+                >
+                  {t('emi.yr')}
+                </button>
+                <button
+                  type="button"
+                  className={`emi-compact-toggle-btn ${tenureUnit === 'Mo' ? 'active' : ''}`}
+                  onClick={() => {
+                    if (tenureUnit === 'Yr') setTenure(tenure * 12)
+                    setTenureUnit('Mo')
+                  }}
+                >
+                  {t('emi.mo')}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="emi-compact-results">
+          <div className="emi-compact-emi-box">
+            <div className="emi-compact-emi-label">Monthly EMI</div>
+            <div className="emi-compact-emi-value">
+              <RupeeIcon size={20} />{formatNumber(emi)}
+            </div>
+          </div>
+
+          <div className="emi-compact-stats">
+            <div className="emi-compact-stat">
+              <span className="emi-compact-stat-label">Total Interest</span>
+              <span className="emi-compact-stat-value interest">
+                <RupeeIcon size={12} />{formatNumber(totalInterest)}
+              </span>
+            </div>
+            <div className="emi-compact-stat">
+              <span className="emi-compact-stat-label">Total Payment</span>
+              <span className="emi-compact-stat-value">
+                <RupeeIcon size={12} />{formatNumber(totalPayment)}
+              </span>
+            </div>
+          </div>
+
+          <div className="emi-compact-chart">
+            <ResponsiveContainer width="100%" height={160}>
+              <PieChart>
+                <Pie
+                  data={pieData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={30}
+                  outerRadius={55}
+                  paddingAngle={5}
+                  dataKey="value"
+                >
+                  {pieData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip content={<CustomTooltip />} />
+                <Legend
+                  verticalAlign="bottom"
+                  iconSize={8}
+                  wrapperStyle={{ fontSize: '11px', paddingTop: '0px' }}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="loan-calculator-container">
       <div className="emi-calc-wrapper">
@@ -213,7 +336,7 @@ export default function LoanCalculator({
                   <span className="emi-currency-symbol"><RupeeIcon size={16} /></span>
                   <input
                     type="text"
-                    value={amount.toLocaleString('en-IN')} // formatting for display
+                    value={amount.toLocaleString('en-IN')}
                     onChange={(e) => {
                       const val = e.target.value.replace(/,/g, '')
                       if (!isNaN(Number(val))) setAmount(Number(val))
@@ -225,24 +348,6 @@ export default function LoanCalculator({
                     className="emi-input-field"
                   />
                 </div>
-              </div>
-              <div className="emi-slider-container">
-                <input
-                  type="range"
-                  min={minAmount}
-                  max={maxAmount}
-                  step={10000}
-                  value={amount}
-                  onChange={(e) => setAmount(Number(e.target.value))}
-                  className="emi-slider emi-slider-olive"
-                  style={{
-                    background: `linear-gradient(to right, ${OLIVE_GREEN} 0%, ${OLIVE_GREEN} ${(amount - minAmount) / (maxAmount - minAmount) * 100}%, #e2e8f0 ${(amount - minAmount) / (maxAmount - minAmount) * 100}%, #e2e8f0 100%)`
-                  }}
-                />
-              </div>
-              <div className="emi-slider-range-labels">
-                <span><RupeeIcon size={12} />{formatNumber(minAmount)}</span>
-                <span><RupeeIcon size={12} />{formatNumber(maxAmount)}</span>
               </div>
             </div>
 
@@ -259,24 +364,6 @@ export default function LoanCalculator({
                   />
                   <span className="emi-currency-symbol">%</span>
                 </div>
-              </div>
-              <div className="emi-slider-container">
-                <input
-                  type="range"
-                  min={MIN_RATE}
-                  max={MAX_RATE}
-                  step={0.1}
-                  value={interestRate}
-                  onChange={(e) => setInterestRate(Number(e.target.value))}
-                  className="emi-slider emi-slider-olive"
-                  style={{
-                    background: `linear-gradient(to right, ${OLIVE_GREEN} 0%, ${OLIVE_GREEN} ${(interestRate - MIN_RATE) / (MAX_RATE - MIN_RATE) * 100}%, #e2e8f0 ${(interestRate - MIN_RATE) / (MAX_RATE - MIN_RATE) * 100}%, #e2e8f0 100%)`
-                  }}
-                />
-              </div>
-              <div className="emi-slider-range-labels">
-                <span>{MIN_RATE}%</span>
-                <span>{MAX_RATE}%</span>
               </div>
             </div>
 
@@ -314,24 +401,6 @@ export default function LoanCalculator({
                     </button>
                   </div>
                 </div>
-              </div>
-              <div className="emi-slider-container">
-                <input
-                  type="range"
-                  min={minTenure}
-                  max={maxTenure}
-                  step={1}
-                  value={tenure}
-                  onChange={(e) => setTenure(Number(e.target.value))}
-                  className="emi-slider emi-slider-olive"
-                  style={{
-                    background: `linear-gradient(to right, ${OLIVE_GREEN} 0%, ${OLIVE_GREEN} ${(tenure - minTenure) / (maxTenure - minTenure) * 100}%, #e2e8f0 ${(tenure - minTenure) / (maxTenure - minTenure) * 100}%, #e2e8f0 100%)`
-                  }}
-                />
-              </div>
-              <div className="emi-slider-range-labels">
-                <span>{minTenure} {tenureUnit}</span>
-                <span>{maxTenure} {tenureUnit}</span>
               </div>
             </div>
 

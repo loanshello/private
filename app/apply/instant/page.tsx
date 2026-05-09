@@ -152,7 +152,7 @@ function InstantApplyContent() {
       <div className="bank-apply-header" style={{ background: BRAND_GRADIENT }}>
         <div className="bank-apply-header-inner">
           <div className="bank-apply-header-left">
-            <Image src="/assets/images/Logo-Helloans.png" alt="Helloans" width={130} height={44} className="bank-hero-logo zinee-logo" />
+            <Image src="/assets/images/helloans-logo.png" alt="Helloans" width={130} height={44} className="bank-hero-logo zinee-logo" />
           </div>
           <div className="bank-apply-header-right">
             <div className="bank-apply-header-features">

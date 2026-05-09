@@ -103,7 +103,7 @@ export default function QuickApplyForm({ bankId, bank, loanTypeSlug, loanLabel }
       {/* Header bar */}
       <div className="quick-apply-header" style={{ background: `linear-gradient(135deg, ${bank.color}, ${bank.primaryColor})` }}>
         <div className="quick-apply-header-inner">
-          <Image src="/assets/images/Logo-Helloans.png" alt="Zinee Group" width={100} height={34} className="bank-hero-logo zinee-logo" />
+          <Image src="/assets/images/helloans-logo.png" alt="Helloans" width={100} height={34} className="bank-hero-logo zinee-logo" />
           <span className="quick-apply-handshake">🤝</span>
           {bank.logo ? (
             <Image src={bank.logo} alt={bank.name} width={100} height={34} className="bank-hero-logo bank-partner-logo" />
