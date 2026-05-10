@@ -167,9 +167,6 @@ export default function EmiEligibilityCalculator({ compact = false }: EmiEligibi
             <RupeeIcon size={20} />{formatNumber(maxEligibleEmi)}
             <span className="elig-compact-per-month">/month</span>
           </div>
-          <div className="elig-compact-badge">
-            {eligibleEmiPercent}% of Salary
-          </div>
         </div>
 
         {/* 4 & 5. Interest Rate and Tenure */}

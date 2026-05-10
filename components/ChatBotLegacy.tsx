@@ -434,7 +434,7 @@ function ChatBotLegacy({
 
 
   const handleWhatsAppClick = () => {
-    const whatsappNumber = '919540185185'
+    const whatsappNumber = '919654188188'
     const message = encodeURIComponent('Hello! I need help with loans.')
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
     window.open(whatsappUrl, '_blank')

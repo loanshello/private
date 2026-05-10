@@ -31,15 +31,6 @@ export default function AboutSection() {
         </div>
       </div>
 
-      <div className="about-team-section">
-        <Image
-          src="/assets/images/team.png"
-          alt="Helloans Leadership Team — Ajit Singh (Founder & CEO), S. Kumar Swain (Business Head), Mohit Soni (Vice President), Hemali Rekhi (Asst. Vice President), Ankita Yadav (Senior Floor Manager), Satyajeet Gupta (Floor Manager)"
-          width={1024}
-          height={600}
-          className="about-team-image"
-        />
-      </div>
 
       <div className="about-why-choose">
         <h3 className="about-section-title">{t('about.whyChoose')}</h3>

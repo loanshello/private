@@ -3,7 +3,19 @@
 import LoanCalculator from '@/components/LoanCalculator'
 import BankLoanComparison from '@/components/BankLoanComparison'
 
-export default function EmiCalculatorWithComparison() {
+interface EmiCalculatorWithComparisonProps {
+  hideComparison?: boolean
+  onlyComparison?: boolean
+}
+
+export default function EmiCalculatorWithComparison({ 
+  hideComparison = false, 
+  onlyComparison = false 
+}: EmiCalculatorWithComparisonProps) {
+  if (onlyComparison) {
+    return <BankLoanComparison />
+  }
+
   return (
     <>
       <LoanCalculator
@@ -11,9 +23,9 @@ export default function EmiCalculatorWithComparison() {
         defaultBanks={[]}
         defaultInterestRate={10.5}
         minAmount={50000}
-        maxAmount={5000000}
+        maxAmount={999999999999}
       />
-      <BankLoanComparison />
+      {!hideComparison && <BankLoanComparison />}
     </>
   )
 }

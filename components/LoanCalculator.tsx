@@ -26,6 +26,8 @@ interface LoanCalculatorProps {
   onParamsChange?: (params: LoanCalculatorParams) => void
   /** Compact mode for side-by-side layout */
   compact?: boolean
+  /** Called with yearly schedule data so parent can render the table separately */
+  onScheduleData?: (data: any[]) => void
 }
 
 const formatNumber = (amount: number) => {
@@ -41,6 +43,7 @@ export default function LoanCalculator({
   defaultInterestRate = 10.5,
   onParamsChange,
   compact = false,
+  onScheduleData,
 }: LoanCalculatorProps) {
   const { t } = useLanguage()
   const { getDefaultRate, isLoading: ratesLoading } = useBankRates()
@@ -156,6 +159,10 @@ export default function LoanCalculator({
   const { emi, totalInterest, totalPayment, yearlyData } = calculations
   const [expandedYear, setExpandedYear] = useState<number | null>(null)
 
+  useEffect(() => {
+    onScheduleData?.(yearlyData)
+  }, [yearlyData, onScheduleData])
+
   // Pie Chart Data: Principal (green), Interest (red)
   const pieData = [
     { name: t('emi.principalAmount'), value: amount },
@@ -230,6 +237,16 @@ export default function LoanCalculator({
             </div>
           </div>
 
+        </div>
+
+        <div className="emi-compact-results">
+          <div className="emi-compact-emi-box">
+            <div className="emi-compact-emi-label">Monthly EMI</div>
+            <div className="emi-compact-emi-value">
+              <RupeeIcon size={20} />{formatNumber(emi)}
+            </div>
+          </div>
+
           {/* Tenure Input */}
           <div className="emi-compact-input-group">
             <label className="emi-compact-label">{t('emi.loanTenure')}</label>
@@ -264,15 +281,6 @@ export default function LoanCalculator({
                   {t('emi.mo')}
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="emi-compact-results">
-          <div className="emi-compact-emi-box">
-            <div className="emi-compact-emi-label">Monthly EMI</div>
-            <div className="emi-compact-emi-value">
-              <RupeeIcon size={20} />{formatNumber(emi)}
             </div>
           </div>
 

@@ -89,7 +89,7 @@ const translations = {
     'features.promiseTitle': 'Helloans Promise',
     'features.promiseDesc': 'To provide cashback within 15 days of Loan Disbursal or submission of Demand Draft',
     'features.promiseBackLine1': 'Terms & conditions apply',
-    'features.promiseBackLine2': 'T&C*',
+    'features.promiseBackLine2': '',
 
     // Carousel
     'carousel.usedCarLoan': 'Used Car Loan',

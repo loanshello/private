@@ -1,8 +1,10 @@
 'use client'
 
+import React, { useState } from 'react'
 import LoanCalculator from '@/components/LoanCalculator'
 import BankLoanComparison from '@/components/BankLoanComparison'
 import EmiEligibilityCalculator from '@/components/EmiEligibilityCalculator'
+import RepaymentSchedule from '@/components/RepaymentSchedule'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { CompareButton } from '@/components/EmiCalculatorWithComparison'
@@ -10,6 +12,8 @@ import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function EmiCalculatorPage() {
   const { t } = useLanguage()
+  const [scheduleData, setScheduleData] = useState<any[]>([])
+
   const scrollToComparison = () => {
     const heading = document.querySelector('.compare-bank-loans-title')
     const scroller = document.querySelector('.scrollable-content')
@@ -56,6 +60,7 @@ export default function EmiCalculatorPage() {
                   minAmount={50000}
                   maxAmount={999999999999}
                   compact
+                  onScheduleData={setScheduleData}
                 />
               </div>
 
@@ -68,6 +73,9 @@ export default function EmiCalculatorPage() {
                 <EmiEligibilityCalculator compact />
               </div>
             </div>
+
+            {/* Repayment Schedule - Full Width */}
+            <RepaymentSchedule yearlyData={scheduleData} />
 
             {/* Bank Comparison Section - Full Width Below */}
             <BankLoanComparison />

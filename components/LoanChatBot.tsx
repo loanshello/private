@@ -838,7 +838,7 @@ function LoanChatBotInner({
     <>
       {!embedded && showWhatsApp && (
         <a
-          href="https://wa.me/919540185185?text=Hello!%20I%20need%20help%20with%20loans."
+          href="https://wa.me/919654188188?text=Hello!%20I%20need%20help%20with%20loans."
           target="_blank"
           rel="noopener noreferrer"
           className="lc-whatsapp"
