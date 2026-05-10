@@ -9,11 +9,11 @@
   font-size: 2rem;
   font-weight: 700;
   background: linear-gradient(90deg,
-      #1e40af 0%,
-      #3b82f6 25%,
+      #007A94 0%,
+      #20B2CC 25%,
       #93c5fd 50%,
-      #3b82f6 75%,
-      #1e40af 100%);
+      #20B2CC 75%,
+      #007A94 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;

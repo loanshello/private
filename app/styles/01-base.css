@@ -382,7 +382,7 @@ label,
     /* Below stock ticker */
     left: 0;
     right: 0;
-    background-color: #1e40af;
+    background-color: #007A94;
     /* Blue */
     color: #ffffff;
     padding: 5px 0;
@@ -546,7 +546,7 @@ html[lang="hi"] .logo {
 .hamburger-line {
     width: 100%;
     height: 3px;
-    background-color: #1e40af;
+    background-color: #007A94;
     border-radius: 2px;
     transition: all 0.3s ease;
     transform-origin: center;
@@ -819,7 +819,7 @@ html[lang="hi"] .logo {
     gap: 5px;
     white-space: nowrap;
     text-decoration: none;
-    color: #1e40af;
+    color: #007A94;
     font-weight: 500;
     font-size: 18px;
     transition: color 0.3s ease;
@@ -828,7 +828,7 @@ html[lang="hi"] .logo {
 }
 
 .dropdown-trigger:hover {
-    color: #3b82f6;
+    color: #20B2CC;
     text-decoration: underline;
 }
 
@@ -893,22 +893,22 @@ html[lang="hi"] .logo {
 }
 
 .style-btn:hover {
-    border-color: #1e40af;
-    color: #1e40af;
+    border-color: #007A94;
+    color: #007A94;
     background: #eff6ff;
     transform: translateX(4px);
 }
 
 .style-btn.active {
-    border-color: #1e40af;
-    background: #1e40af;
+    border-color: #007A94;
+    background: #007A94;
     color: white;
 }
 
 /* Each menu item: 3D glass pill */
 .nav-link {
     text-decoration: none;
-    color: #1e40af;
+    color: #007A94;
     font-weight: 600;
     font-size: 17px;
     position: relative;
@@ -966,7 +966,7 @@ html[lang="hi"] .logo {
 }
 
 .nav-link:hover {
-    color: #3b82f6;
+    color: #20B2CC;
     transform: translateY(-1px);
     background: rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
@@ -983,7 +983,7 @@ html[lang="hi"] .logo {
 }
 
 .nav-link-active {
-    color: #1d4ed8;
+    color: #008DAA;
     background: rgba(255, 255, 255, 0.55);
     box-shadow: 0 4px 16px rgba(30, 64, 175, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
@@ -1184,18 +1184,18 @@ html[lang="hi"] .nav-link-label {
     font-size: 13px;
     letter-spacing: 0.01em;
     font-weight: 700;
-    color: #1e40af;
+    color: #007A94;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 html[lang="hi"] .nav-link:hover .nav-link-label {
-    color: #3b82f6;
+    color: #20B2CC;
     font-weight: 700;
 }
 
 html[lang="hi"] .nav-link-active .nav-link-label {
     font-weight: 700;
-    color: #1d4ed8;
+    color: #008DAA;
 }
 
 html[lang="hi"] .nav-link-highlight .nav-link-label {
@@ -1273,7 +1273,7 @@ html[lang="hi"] .header-actions {
     font-family: var(--font-inter), sans-serif;
     font-size: 16px;
     font-weight: 700;
-    color: #3B82F6;
+    color: #20B2CC;
     min-width: 110px;
     justify-content: space-between;
 }
@@ -1285,7 +1285,7 @@ html[lang="hi"] .language-switcher-button {
 }
 
 .language-switcher-button:hover {
-    border-color: #3B82F6;
+    border-color: #20B2CC;
     background: rgba(59, 130, 246, 0.05);
 }
 
@@ -1310,7 +1310,7 @@ html[lang="hi"] .language-switcher-button {
 .language-switcher-text {
     flex: 1;
     text-align: left;
-    color: #3B82F6;
+    color: #20B2CC;
     font-weight: 700;
     font-size: 15px;
 }
@@ -1323,7 +1323,7 @@ html[lang="hi"] .language-switcher-text {
     width: 16px;
     height: 16px;
     flex-shrink: 0;
-    color: #3B82F6;
+    color: #20B2CC;
     transition: transform 0.2s ease;
 }
 
@@ -1380,7 +1380,7 @@ html[lang="hi"] .language-switcher-text {
 
 .language-option.active {
     background: rgba(59, 130, 246, 0.1);
-    color: #3B82F6;
+    color: #20B2CC;
     font-weight: 600;
 }
 
@@ -1392,7 +1392,7 @@ html[lang="hi"] .language-switcher-text {
     width: 18px;
     height: 18px;
     flex-shrink: 0;
-    color: #3B82F6;
+    color: #20B2CC;
     margin-left: 8px;
 }
 
@@ -1415,13 +1415,13 @@ html[lang="hi"] .language-switcher-text {
     font-family: var(--font-inter), sans-serif;
     font-size: 15px;
     font-weight: 700;
-    color: #3B82F6;
+    color: #20B2CC;
     min-width: 110px;
     justify-content: space-between;
 }
 
 .login-dropdown-button:hover {
-    border-color: #3B82F6;
+    border-color: #20B2CC;
     background: rgba(59, 130, 246, 0.05);
 }
 
@@ -1433,13 +1433,13 @@ html[lang="hi"] .language-switcher-text {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
-    color: #3B82F6;
+    color: #20B2CC;
 }
 
 .login-dropdown-text {
     flex: 1;
     text-align: left;
-    color: #3B82F6;
+    color: #20B2CC;
     font-weight: 700;
     font-size: 15px;
 }
@@ -1448,7 +1448,7 @@ html[lang="hi"] .language-switcher-text {
     width: 16px;
     height: 16px;
     flex-shrink: 0;
-    color: #3B82F6;
+    color: #20B2CC;
     transition: transform 0.2s ease;
 }
 
@@ -1488,7 +1488,7 @@ html[lang="hi"] .language-switcher-text {
 
 .login-dropdown-option:hover {
     background: rgba(59, 130, 246, 0.08);
-    color: #2563eb;
+    color: #00A0C0;
 }
 
 .login-dropdown-option-text {
@@ -1676,7 +1676,7 @@ html[lang="hi"] .language-switcher-text {
 .btn-call {
     position: relative;
     background: transparent;
-    color: #3B82F6;
+    color: #20B2CC;
     padding: 10px 16px;
     border-radius: 8px;
     text-decoration: none;
@@ -1706,8 +1706,8 @@ html[lang="hi"] .btn-call {
     width: 24px;
     height: 24px;
     flex-shrink: 0;
-    color: #3B82F6;
-    stroke: #3B82F6;
+    color: #20B2CC;
+    stroke: #20B2CC;
     fill: none;
 }
 
@@ -1717,7 +1717,7 @@ html[lang="hi"] .btn-call {
     position: relative;
     z-index: 1;
     letter-spacing: 0.02em;
-    color: #3B82F6;
+    color: #20B2CC;
     text-transform: none;
 }
 
@@ -1788,7 +1788,7 @@ html[lang="hi"] .btn-call-label {
 .popup-expert-icon {
     width: 32px;
     height: 32px;
-    color: #3B82F6;
+    color: #20B2CC;
     flex-shrink: 0;
 }
 
@@ -1819,7 +1819,7 @@ html[lang="hi"] .btn-call-label {
 }
 
 .popup-phone {
-    color: #3B82F6;
+    color: #20B2CC;
     text-decoration: none;
     font-weight: 700;
     transition: opacity 0.2s ease;

@@ -160,8 +160,8 @@
 .hero-dot.active {
     width: 28px;
     border-radius: 5px;
-    background: #1e40af;
-    border-color: #1e40af;
+    background: #007A94;
+    border-color: #007A94;
 }
 
 .hero-carousel-content {
@@ -217,11 +217,11 @@
     box-sizing: content-box;
     background-color: rgba(255, 255, 255, 1);
     background-image: linear-gradient(120deg,
-            #1e40af 0%,
-            #3b82f6 40%,
+            #007A94 0%,
+            #20B2CC 40%,
             rgba(255, 255, 255, 0.9) 50%,
-            #3b82f6 60%,
-            #1e40af 100%);
+            #20B2CC 60%,
+            #007A94 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -274,11 +274,11 @@
 .shimmer-text {
     display: inline;
     background-image: linear-gradient(120deg,
-            #1e40af 0%,
-            #3b82f6 40%,
+            #007A94 0%,
+            #20B2CC 40%,
             rgba(255, 255, 255, 0.9) 50%,
-            #3b82f6 60%,
-            #1e40af 100%);
+            #20B2CC 60%,
+            #007A94 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -475,10 +475,10 @@
 }
 
 .modern-title span.modern-title-blue {
-    color: #1d4ed8;
+    color: #008DAA;
     position: relative;
     display: inline-block;
-    background: linear-gradient(90deg, #1d4ed8 0%, #3b82f6 25%, #93c5fd 50%, #3b82f6 75%, #1d4ed8 100%);
+    background: linear-gradient(90deg, #008DAA 0%, #20B2CC 25%, #93c5fd 50%, #20B2CC 75%, #008DAA 100%);
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -501,8 +501,8 @@
 /* Fallback when background-clip: text not supported */
 @supports not (background-clip: text) {
     .modern-title span.modern-title-blue {
-        color: #1d4ed8;
-        -webkit-text-fill-color: #1d4ed8;
+        color: #008DAA;
+        -webkit-text-fill-color: #008DAA;
         background: none;
     }
 }
@@ -590,7 +590,7 @@
 }
 
 .view-all-card {
-    background: #1e40af;
+    background: #007A94;
     color: white;
     font-weight: 600;
     font-size: 13px;
@@ -600,7 +600,7 @@
 }
 
 .view-all-card:hover {
-    background: #1e3a8a;
+    background: #006B80;
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(30, 64, 175, 0.3);
@@ -761,7 +761,7 @@
     transform: scale(1.05);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
     background: white;
-    color: #1e40af;
+    color: #007A94;
     /* Blue on hover */
     border-color: #bfdbfe;
 }
@@ -792,7 +792,7 @@
     align-items: center;
     justify-content: center;
     padding: 0;
-    color: #1e40af;
+    color: #007A94;
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -805,7 +805,7 @@
 
 .carousel-nav-btn:hover {
     background: #eff6ff;
-    border-color: #3b82f6;
+    border-color: #20B2CC;
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -898,7 +898,7 @@
     height: 32px;
     border-radius: 8px;
     background: linear-gradient(135deg, #eff6ff, #dbeafe);
-    color: #1d4ed8;
+    color: #008DAA;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -922,7 +922,7 @@
 .instant-loan-social-emoji {
     display: inline-flex;
     align-items: center;
-    color: #2563eb;
+    color: #00A0C0;
 }
 
 .instant-loan-highlight-text {
@@ -967,7 +967,7 @@
     align-items: center;
     justify-content: center;
     padding: 10px 32px;
-    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    background: linear-gradient(135deg, #008DAA 0%, #00A0C0 100%);
     color: white;
     font-size: 15px;
     font-weight: 700;
@@ -980,7 +980,7 @@
 }
 
 .instant-loan-apply-btn:hover {
-    background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+    background: linear-gradient(135deg, #007A94 0%, #008DAA 100%);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(37, 99, 235, 0.45);
 }
@@ -1019,7 +1019,7 @@
 }
 
 .instant-loan-dot.active {
-    background: #1e40af;
+    background: #007A94;
     width: 20px;
     border-radius: 4px;
 }

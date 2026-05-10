@@ -10,8 +10,8 @@ const LOAN_TYPE_LABELS: Record<string, string> = {
   'business-loans': 'Business Loan',
 }
 
-const BRAND_COLOR = '#1d4ed8'
-const BRAND_GRADIENT = `linear-gradient(135deg, #1d4ed8, #2563eb)`
+const BRAND_COLOR = '#008DAA'
+const BRAND_GRADIENT = `linear-gradient(135deg, #008DAA, #00A0C0)`
 
 export default function InstantApplyPage() {
   return (

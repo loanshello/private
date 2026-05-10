@@ -1009,7 +1009,7 @@ function LoanChatBotInner({
           backdrop-filter: blur(12px);
           border: 1px solid rgba(255, 255, 255, 0.5);
           box-shadow: 0 6px 24px rgba(59, 130, 246, 0.2);
-          color: #1e40af;
+          color: #007A94;
           cursor: pointer;
           display: flex;
           align-items: center;

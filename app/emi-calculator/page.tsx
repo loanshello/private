@@ -45,10 +45,10 @@ export default function EmiCalculatorPage() {
               <p>{t('emi.pageDesc')}</p>
             </div>
 
-            {/* Side-by-side Calculators */}
-            <div className="emi-calculators-row">
-              {/* EMI Calculator */}
-              <div className="emi-calc-panel">
+            {/* Calculators + Repayment Schedule (reordered on mobile: 1-3-2) */}
+            <div className="emi-calculators-section">
+              {/* 1. EMI Calculator */}
+              <div className="emi-calc-panel emi-section-emi">
                 <div className="emi-calc-panel-header">
                   <h2><span className="shimmer-text">EMI</span> Calculator</h2>
                   <p>Calculate your monthly EMI for any loan amount</p>
@@ -64,18 +64,20 @@ export default function EmiCalculatorPage() {
                 />
               </div>
 
-              {/* EMI Eligibility Calculator */}
-              <div className="emi-calc-panel">
+              {/* 2. EMI Eligibility Calculator */}
+              <div className="emi-calc-panel emi-section-eligibility">
                 <div className="emi-calc-panel-header">
                   <h2><span className="shimmer-text">Eligibility</span> Calculator</h2>
                   <p>Find out how much loan you can afford</p>
                 </div>
                 <EmiEligibilityCalculator compact />
               </div>
-            </div>
 
-            {/* Repayment Schedule - Full Width */}
-            <RepaymentSchedule yearlyData={scheduleData} />
+              {/* 3. Repayment Schedule */}
+              <div className="emi-section-schedule">
+                <RepaymentSchedule yearlyData={scheduleData} />
+              </div>
+            </div>
 
             {/* Bank Comparison Section - Full Width Below */}
             <BankLoanComparison />

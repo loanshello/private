@@ -43,7 +43,7 @@ function getInitials(name: string) {
 }
 
 const avatarColors = [
-  '#3b82f6', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444',
+  '#20B2CC', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444',
   '#ec4899', '#6366f1', '#14b8a6', '#f97316', '#84cc16', '#0ea5e9',
 ]
 

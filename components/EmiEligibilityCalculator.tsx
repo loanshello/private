@@ -44,9 +44,11 @@ export default function EmiEligibilityCalculator({ compact = false }: EmiEligibi
   const [loans, setLoans] = useState<Loan[]>([
     { id: '1', type: 'Personal Loan', emi: 0 }
   ])
-  const [customRoi, setCustomRoi] = useState<number>(8.5)
-  const [customTenure, setCustomTenure] = useState<number>(20)
+  const [customRoiInput, setCustomRoiInput] = useState<string>('8.5')
+  const customRoi = Number(customRoiInput) || 1
+  const [customTenureInput, setCustomTenureInput] = useState<string>('20')
   const [tenureUnit, setTenureUnit] = useState<'Yr' | 'Mo'>('Yr')
+  const customTenure = Number(customTenureInput) || 1
 
   const addLoan = useCallback(() => {
     const newId = Date.now().toString()
@@ -176,8 +178,12 @@ export default function EmiEligibilityCalculator({ compact = false }: EmiEligibi
             <div className="elig-compact-input-wrap">
               <input
                 type="number"
-                value={customRoi}
-                onChange={(e) => setCustomRoi(Math.max(1, Math.min(30, Number(e.target.value))))}
+                value={customRoiInput}
+                onChange={(e) => setCustomRoiInput(e.target.value)}
+                onBlur={() => {
+                  const v = Number(customRoiInput) || 1
+                  setCustomRoiInput(String(Math.max(1, Math.min(30, v))))
+                }}
                 step="0.1"
                 className="elig-compact-input"
               />
@@ -190,8 +196,13 @@ export default function EmiEligibilityCalculator({ compact = false }: EmiEligibi
               <div className="elig-compact-input-wrap tenure">
                 <input
                   type="number"
-                  value={customTenure}
-                  onChange={(e) => setCustomTenure(Math.max(1, Math.min(tenureUnit === 'Yr' ? 30 : 360, Number(e.target.value))))}
+                  value={customTenureInput}
+                  onChange={(e) => setCustomTenureInput(e.target.value)}
+                  onBlur={() => {
+                    const v = Number(customTenureInput) || 1
+                    const max = tenureUnit === 'Yr' ? 30 : 360
+                    setCustomTenureInput(String(Math.max(1, Math.min(max, v))))
+                  }}
                   className="elig-compact-input"
                 />
               </div>
@@ -200,7 +211,7 @@ export default function EmiEligibilityCalculator({ compact = false }: EmiEligibi
                   type="button"
                   className={`elig-compact-tenure-btn ${tenureUnit === 'Yr' ? 'active' : ''}`}
                   onClick={() => {
-                    if (tenureUnit === 'Mo') setCustomTenure(Math.max(1, Math.round(customTenure / 12)))
+                    if (tenureUnit === 'Mo') setCustomTenureInput(String(Math.max(1, Math.round(customTenure / 12))))
                     setTenureUnit('Yr')
                   }}
                 >
@@ -210,7 +221,7 @@ export default function EmiEligibilityCalculator({ compact = false }: EmiEligibi
                   type="button"
                   className={`elig-compact-tenure-btn ${tenureUnit === 'Mo' ? 'active' : ''}`}
                   onClick={() => {
-                    if (tenureUnit === 'Yr') setCustomTenure(customTenure * 12)
+                    if (tenureUnit === 'Yr') setCustomTenureInput(String(customTenure * 12))
                     setTenureUnit('Mo')
                   }}
                 >
@@ -494,8 +505,12 @@ export default function EmiEligibilityCalculator({ compact = false }: EmiEligibi
                 <div className="emi-elig-loan-input-wrap">
                   <input
                     type="number"
-                    value={customRoi}
-                    onChange={(e) => setCustomRoi(Math.max(1, Math.min(30, Number(e.target.value))))}
+                    value={customRoiInput}
+                    onChange={(e) => setCustomRoiInput(e.target.value)}
+                    onBlur={() => {
+                      const v = Number(customRoiInput) || 1
+                      setCustomRoiInput(String(Math.max(1, Math.min(30, v))))
+                    }}
                     step="0.1"
                     min="1"
                     max="30"
@@ -509,8 +524,12 @@ export default function EmiEligibilityCalculator({ compact = false }: EmiEligibi
                 <div className="emi-elig-loan-input-wrap">
                   <input
                     type="number"
-                    value={customTenure}
-                    onChange={(e) => setCustomTenure(Math.max(1, Math.min(30, Number(e.target.value))))}
+                    value={customTenureInput}
+                    onChange={(e) => setCustomTenureInput(e.target.value)}
+                    onBlur={() => {
+                      const v = Number(customTenureInput) || 1
+                      setCustomTenureInput(String(Math.max(1, Math.min(30, v))))
+                    }}
                     step="1"
                     min="1"
                     max="30"

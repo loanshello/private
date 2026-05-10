@@ -2542,7 +2542,7 @@ body:has(.bank-app-page-wrapper) {
 
 .help-button:hover {
     background: #e2e8f0;
-    color: #1e40af;
+    color: #007A94;
 }
 
 /* Progress Indicator */
@@ -2597,7 +2597,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .progress-step.active .step-number {
-    background: #1e40af;
+    background: #007A94;
     color: white;
 }
 
@@ -2608,7 +2608,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .progress-step.active .step-label {
-    color: #1e40af;
+    color: #007A94;
     font-weight: 600;
 }
 
@@ -2671,7 +2671,7 @@ body:has(.bank-app-page-wrapper) {
 
 .form-input-bank:focus {
     outline: none;
-    border-color: #1e40af;
+    border-color: #007A94;
     box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
 }
 
@@ -2686,7 +2686,7 @@ body:has(.bank-app-page-wrapper) {
 
 .otp-button {
     padding: 14px 24px;
-    background: #1e40af;
+    background: #007A94;
     color: white;
     border: none;
     border-radius: 8px;
@@ -2698,7 +2698,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .otp-button:hover:not(:disabled) {
-    background: #1e3a8a;
+    background: #006B80;
 }
 
 .otp-button:disabled {
@@ -2710,7 +2710,7 @@ body:has(.bank-app-page-wrapper) {
     display: inline-block;
     margin-top: 8px;
     font-size: 13px;
-    color: #1e40af;
+    color: #007A94;
     text-decoration: none;
     font-weight: 500;
 }
@@ -2736,7 +2736,7 @@ body:has(.bank-app-page-wrapper) {
 
 .link-text {
     font-size: 13px;
-    color: #1e40af;
+    color: #007A94;
     text-decoration: none;
     font-weight: 500;
 }
@@ -2763,7 +2763,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .radio-option:hover {
-    border-color: #1e40af;
+    border-color: #007A94;
     background: #eff6ff;
 }
 
@@ -2773,7 +2773,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .radio-option input[type="radio"]:checked+span {
-    color: #1e40af;
+    color: #007A94;
     font-weight: 600;
 }
 
@@ -2812,7 +2812,7 @@ body:has(.bank-app-page-wrapper) {
 
 .loan-detail-item strong {
     font-size: 18px;
-    color: #1e40af;
+    color: #007A94;
     font-weight: 700;
 }
 
@@ -2848,7 +2848,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .consent-link {
-    color: #1e40af;
+    color: #007A94;
     text-decoration: none;
     font-weight: 500;
 }
@@ -2864,7 +2864,7 @@ body:has(.bank-app-page-wrapper) {
 .submit-button-bank {
     width: 100%;
     padding: 16px 32px;
-    background: #1e40af;
+    background: #007A94;
     color: white;
     border: none;
     border-radius: 8px;
@@ -3125,7 +3125,7 @@ body:has(.bank-app-page-wrapper) {
     font-weight: 700;
     margin-bottom: 32px;
     text-align: center;
-    color: #1e40af;
+    color: #007A94;
 }
 
 /* New Rectangular Tiles Grid */
@@ -3157,10 +3157,10 @@ body:has(.bank-app-page-wrapper) {
     width: 100%;
     max-width: 400px;
     /* Brand-aware background – falls back to primary blue if no brand color is set */
-    background: linear-gradient(135deg, var(--bank-color, #2563eb) 0%, #f8fafc 45%, #ffffff 100%);
+    background: linear-gradient(135deg, var(--bank-color, #00A0C0) 0%, #f8fafc 45%, #ffffff 100%);
     border-radius: 16px;
     padding: 28px;
-    border: 3px solid var(--bank-color, #3b82f6);
+    border: 3px solid var(--bank-color, #20B2CC);
     box-shadow:
         0 4px 16px rgba(30, 64, 175, 0.15),
         0 0 25px rgba(59, 130, 246, 0.4),
@@ -3190,7 +3190,7 @@ body:has(.bank-app-page-wrapper) {
 
 .bank-tile:hover {
     transform: translateY(-6px);
-    border-color: #2563eb;
+    border-color: #00A0C0;
     box-shadow:
         0 12px 32px rgba(30, 64, 175, 0.25),
         0 0 45px rgba(59, 130, 246, 0.8),
@@ -3209,7 +3209,7 @@ body:has(.bank-app-page-wrapper) {
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 8px;
-    color: #1e40af;
+    color: #007A94;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -3243,7 +3243,7 @@ body:has(.bank-app-page-wrapper) {
     justify-content: center;
     font-weight: 700;
     font-size: 18px;
-    color: var(--bank-color, #2563eb);
+    color: var(--bank-color, #00A0C0);
 }
 
 .bank-tile-description {
@@ -3312,7 +3312,7 @@ body:has(.bank-app-page-wrapper) {
     padding: 14px 24px;
     text-align: center;
     color: #ffffff;
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    background: linear-gradient(135deg, #00A0C0 0%, #008DAA 100%);
     border-radius: 10px;
     font-weight: 600;
     font-size: 15px;
@@ -3343,7 +3343,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .bank-tile-apply-btn:hover {
-    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    background: linear-gradient(135deg, #008DAA 0%, #007A94 100%);
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
     transform: translateY(-2px);
 }
@@ -3690,7 +3690,7 @@ body:has(.bank-app-page-wrapper) {
 
     .emi-results-col .emi-stat-value.highlight {
         font-size: 22px;
-        color: #1e40af;
+        color: #007A94;
     }
 
     .emi-calc-wrapper {
@@ -3763,7 +3763,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .emi-input-control:focus-within {
-    border-color: #3b82f6;
+    border-color: #20B2CC;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
@@ -3928,7 +3928,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .emi-stat-value.highlight {
-    color: #3b82f6;
+    color: #20B2CC;
     font-size: 42px;
 }
 
@@ -4021,7 +4021,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .emi-table-pro .emi-th {
-    background: linear-gradient(180deg, #1e40af, #1e3a8a) !important;
+    background: linear-gradient(180deg, #007A94, #006B80) !important;
     color: #fff !important;
     font-weight: 700;
     font-size: 13px;
@@ -4098,7 +4098,7 @@ body:has(.bank-app-page-wrapper) {
 
 .emi-expand-btn:hover {
     background: #e2e8f0;
-    color: #1e40af;
+    color: #007A94;
 }
 
 .emi-td-expanded {
@@ -4237,7 +4237,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .compare-slot-header-bank {
-    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    background: linear-gradient(135deg, #007A94, #20B2CC);
     color: #ffffff;
 }
 
@@ -4278,7 +4278,7 @@ body:has(.bank-app-page-wrapper) {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    background: linear-gradient(135deg, #007A94, #20B2CC);
     color: #ffffff;
     font-size: 28px;
     font-weight: 300;
@@ -4287,13 +4287,13 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .compare-bank-slot-card.add:hover {
-    border-color: #3b82f6;
+    border-color: #20B2CC;
     background: linear-gradient(135deg, #dbeafe, #eff6ff);
     box-shadow: 0 4px 20px rgba(59, 130, 246, 0.15);
 }
 
 .compare-bank-slot-card.selected {
-    border-color: #1e40af;
+    border-color: #007A94;
     background: #eff6ff;
 }
 
@@ -4332,7 +4332,7 @@ body:has(.bank-app-page-wrapper) {
 .compare-bank-logo-fallback {
     font-size: 22px;
     font-weight: 700;
-    color: #1e40af;
+    color: #007A94;
     background: #dbeafe;
     line-height: 1;
 }
@@ -4363,13 +4363,13 @@ body:has(.bank-app-page-wrapper) {
 .compare-bank-slot-rate {
     font-size: 17px;
     font-weight: 600;
-    color: #1e40af;
+    color: #007A94;
 }
 
 .compare-bank-slot-remove {
     margin-top: 4px;
     padding: 10px 20px;
-    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    background: linear-gradient(135deg, #007A94, #20B2CC);
     color: #ffffff;
     border: none;
     border-radius: 10px;
@@ -4382,7 +4382,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .compare-bank-slot-remove:hover {
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    background: linear-gradient(135deg, #006B80, #00A0C0);
     transform: translateY(-1px);
     box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
     color: #ffffff;
@@ -4392,7 +4392,7 @@ body:has(.bank-app-page-wrapper) {
 .compare-bank-slot-add-label {
     font-size: 15px;
     font-weight: 600;
-    color: #1e40af;
+    color: #007A94;
     margin-bottom: 0;
 }
 
@@ -4412,7 +4412,7 @@ body:has(.bank-app-page-wrapper) {
 
 .compare-bank-slot-select:focus {
     outline: none;
-    border-color: #3b82f6;
+    border-color: #20B2CC;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
@@ -4501,7 +4501,7 @@ body:has(.bank-app-page-wrapper) {
 
 /* Header — Bank columns */
 .compare-bank-th-bank {
-    background: linear-gradient(180deg, #1e40af, #2563eb) !important;
+    background: linear-gradient(180deg, #007A94, #00A0C0) !important;
     min-width: 160px;
     padding: 12px 10px !important;
     border-bottom: none !important;
@@ -4563,7 +4563,7 @@ body:has(.bank-app-page-wrapper) {
 .compare-bank-th-rate {
     font-size: 12px;
     font-weight: 600;
-    color: #3b82f6;
+    color: #20B2CC;
     margin-top: 2px;
 }
 
@@ -4605,7 +4605,7 @@ body:has(.bank-app-page-wrapper) {
 .compare-bank-table .compare-bank-logo-fallback {
     font-size: 18px;
     font-weight: 700;
-    color: #1e40af;
+    color: #007A94;
     background: #dbeafe !important;
 }
 
@@ -4671,13 +4671,13 @@ body:has(.bank-app-page-wrapper) {
 .compare-table-row-emi .compare-emi-cell {
     font-weight: 800;
     font-size: 16px;
-    color: #1e40af;
+    color: #007A94;
     background: #eff6ff !important;
 }
 
 .compare-table-row-emi .compare-bank-td-label {
     background: #eff6ff !important;
-    color: #1e40af;
+    color: #007A94;
     font-weight: 700;
 }
 
@@ -4690,7 +4690,7 @@ body:has(.bank-app-page-wrapper) {
 .compare-bank-apply-btn {
     display: inline-block !important;
     padding: 8px 20px !important;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+    background: linear-gradient(135deg, #00A0C0, #008DAA) !important;
     color: #fff !important;
     border-radius: 8px !important;
     border: none !important;
@@ -4812,7 +4812,7 @@ body:has(.bank-app-page-wrapper) {
     font-weight: 800;
     line-height: 1.2;
     margin: 0;
-    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    background: linear-gradient(135deg, #007A94 0%, #20B2CC 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: none !important;
@@ -4850,7 +4850,7 @@ body:has(.bank-app-page-wrapper) {
 
 .view-all-btn {
     padding: 10px 24px;
-    background: #1e40af;
+    background: #007A94;
     color: white;
     border-radius: 999px;
     font-weight: 600;
@@ -4861,7 +4861,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .view-all-btn:hover {
-    background: #1d4ed8;
+    background: #008DAA;
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(30, 64, 175, 0.3);
 }
@@ -4956,7 +4956,7 @@ body:has(.bank-app-page-wrapper) {
 }
 
 .indicator-dot.active {
-    background: #3b82f6;
+    background: #20B2CC;
     height: 20px;
     border-radius: 10px;
 }
