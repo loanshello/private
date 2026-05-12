@@ -23,7 +23,7 @@ export default function BalanceTransferPage() {
           <BankList
             offers={bankOffers['balance-transfer']}
             categoryTitle={<><span className="loan-title-shimmer">Balance</span> Transfer Offers</>}
-          
+            loanCategory="balance-transfer"
           />
         </div>
       </main>

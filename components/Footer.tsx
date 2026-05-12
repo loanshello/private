@@ -92,7 +92,7 @@ export default function Footer() {
                     </svg>
                     B11, F/F, Shankar Garden
                   </span>
-                  <span className="contact-address-line2">Vikaspuri, Delhi 110018</span>
+                  <span className="contact-address-line2"> Vikaspuri, Delhi -  110018</span>
                   {/* <span className="contact-address-line3"></span> */}
                 </a>
               </li>
