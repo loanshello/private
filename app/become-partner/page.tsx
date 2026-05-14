@@ -5,7 +5,8 @@ import Footer from '@/components/Footer'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
-import OtpVerification from '@/components/OtpVerification'
+// TODO: Uncomment after DLT registration is complete
+// import OtpVerification from '@/components/OtpVerification'
 
 export default function BecomePartnerPage() {
     const { t } = useLanguage()
@@ -19,7 +20,9 @@ export default function BecomePartnerPage() {
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitMessage, setSubmitMessage] = useState('')
-    const [mobileVerified, setMobileVerified] = useState(false)
+    // TODO: Uncomment after DLT registration is complete
+    // const [mobileVerified, setMobileVerified] = useState(false)
+    const [mobileVerified] = useState(true)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const name = e.target.name
@@ -29,7 +32,8 @@ export default function BecomePartnerPage() {
             ...formData,
             [name]: value
         })
-        if (name === 'phone') setMobileVerified(false)
+        // TODO: Uncomment after DLT registration is complete
+        // if (name === 'phone') setMobileVerified(false)
         if (submitMessage) setSubmitMessage('')
     }
 
@@ -51,7 +55,8 @@ export default function BecomePartnerPage() {
 
             if (response.ok) {
                 setSubmitMessage(t('partner.success'))
-                setMobileVerified(false)
+                // TODO: Uncomment after DLT registration is complete
+                // setMobileVerified(false)
                 setFormData({
                     name: '',
                     companyName: '',
@@ -193,6 +198,7 @@ export default function BecomePartnerPage() {
                                                         maxLength={10}
                                                         required
                                                     />
+                                                    {/* TODO: Uncomment after DLT registration is complete
                                                     <div className="partner-verification-block">
                                                         <OtpVerification
                                                             mobile={formData.phone}
@@ -201,7 +207,7 @@ export default function BecomePartnerPage() {
                                                             sendButtonLabel="Send OTP"
                                                             verifyButtonLabel="Verify"
                                                         />
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                             </div>
                                         </div>
@@ -262,7 +268,7 @@ export default function BecomePartnerPage() {
                                         <button
                                             type="submit"
                                             className="partner-submit-btn"
-                                            disabled={isSubmitting || !mobileVerified}
+                                            disabled={isSubmitting}
                                         >
                                             {isSubmitting ? t('partner.submitting') : t('partner.submit')}
                                         </button>

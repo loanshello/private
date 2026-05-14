@@ -3,7 +3,8 @@
 import { useSearchParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import OtpVerification from '@/components/OtpVerification'
+// TODO: Uncomment after DLT registration is complete
+// import OtpVerification from '@/components/OtpVerification'
 import QuickApplyForm from '@/components/QuickApplyForm'
 
 
@@ -146,7 +147,9 @@ export default function BankApplicationPage({ params }: { params: { bankId: stri
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isApplied, setIsApplied] = useState(false)
-  const [mobileVerified, setMobileVerified] = useState(false)
+  // TODO: Uncomment after DLT registration is complete
+  // const [mobileVerified, setMobileVerified] = useState(false)
+  const [mobileVerified] = useState(true)
 
   const dobError = (() => {
     const { day, month, year } = formData
@@ -178,8 +181,9 @@ export default function BankApplicationPage({ params }: { params: { bankId: stri
     formData.mobileNumber.length === 10 &&
     isDobValid &&
     formData.consentPersonalData &&
-    formData.consentPerfios &&
-    mobileVerified
+    formData.consentPerfios
+    // TODO: Uncomment after DLT registration is complete
+    // && mobileVerified
   )
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -510,19 +514,17 @@ export default function BankApplicationPage({ params }: { params: { bankId: stri
                       className="form-input-mobile"
                       placeholder="Enter 10-digit number"
                       value={formData.mobileNumber}
-                      onChange={(e) => {
-                        handleChange(e)
-                        setMobileVerified(false)
-                      }}
+                      onChange={handleChange}
                       maxLength={10}
                       required
                     />
                   </div>
+                  {/* TODO: Uncomment after DLT registration is complete
                   <OtpVerification
                     mobile={formData.mobileNumber}
                     onVerified={() => setMobileVerified(true)}
                     verified={mobileVerified}
-                  />
+                  /> */}
                 </div>
 
                 <div className="form-field-group">

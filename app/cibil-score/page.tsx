@@ -4,7 +4,8 @@ import { useState } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { useLanguage } from '@/contexts/LanguageContext'
-import OtpVerification from '@/components/OtpVerification'
+// TODO: Uncomment after DLT registration is complete
+// import OtpVerification from '@/components/OtpVerification'
 import styles from './cibil.module.css'
 
 export default function CibilScorePage() {
@@ -20,7 +21,9 @@ export default function CibilScorePage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
-  const [mobileVerified, setMobileVerified] = useState(false)
+  // TODO: Uncomment after DLT registration is complete
+  // const [mobileVerified, setMobileVerified] = useState(false)
+  const [mobileVerified] = useState(true)
 
   // Accordion state for Knowledge Hub
   const [activeAccordion, setActiveAccordion] = useState<number | null>(0)
@@ -31,7 +34,8 @@ export default function CibilScorePage() {
       setFormData({ ...formData, [name]: value.toUpperCase() })
     } else if (name === 'mobileNumber' && value.length <= 10) {
       setFormData({ ...formData, [name]: value.replace(/\D/g, '') })
-      setMobileVerified(false)
+      // TODO: Uncomment after DLT registration is complete
+      // setMobileVerified(false)
     } else if (name !== 'mobileNumber') {
       setFormData({ ...formData, [name]: value })
     }
@@ -51,7 +55,8 @@ export default function CibilScorePage() {
       const data = await response.json()
       if (response.ok) {
         setSubmitMessage(t('cibil.formSuccess') || 'Your CIBIL score enquiry has been submitted. We will contact you via email.')
-        setMobileVerified(false)
+        // TODO: Uncomment after DLT registration is complete
+        // setMobileVerified(false)
         setFormData({
           name: '',
           panNumber: '',
@@ -229,6 +234,7 @@ export default function CibilScorePage() {
                           maxLength={10}
                           required
                         />
+                        {/* TODO: Uncomment after DLT registration is complete
                         <div className={styles.verificationBlock}>
                           <OtpVerification
                             mobile={formData.mobileNumber}
@@ -236,7 +242,7 @@ export default function CibilScorePage() {
                             verified={mobileVerified}
                             className={styles.otpVerification}
                           />
-                        </div>
+                        </div> */}
                       </div>
                       <div>
                         <label className={styles.label}>
@@ -293,7 +299,7 @@ export default function CibilScorePage() {
 
                     <button
                       type="submit"
-                      disabled={isSubmitting || !mobileVerified}
+                      disabled={isSubmitting}
                       className={styles.submitButton}
                     >
                       {isSubmitting ? (

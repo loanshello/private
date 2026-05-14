@@ -42,7 +42,7 @@ export default function RootLayout({
             {/* Vector Background Container - Available on all pages */}
             <div className="vector-background" id="vectorBackground"></div>
             {children}
-            {/* Floating ChatBot - no bottom toggle; WhatsApp hidden on /testemailout */}
+            {/* Floating ChatBot */}
             <ChatBotWrapper />
           </BankRatesProvider>
         </LanguageProvider>

@@ -3,7 +3,8 @@
 import { useSearchParams } from 'next/navigation'
 import { useState, useEffect, Suspense } from 'react'
 import Image from 'next/image'
-import OtpVerification from '@/components/OtpVerification'
+// TODO: Uncomment after DLT registration is complete
+// import OtpVerification from '@/components/OtpVerification'
 
 const LOAN_TYPE_LABELS: Record<string, string> = {
   'personal-loans': 'Personal Loan',
@@ -54,7 +55,9 @@ function InstantApplyContent() {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isApplied, setIsApplied] = useState(false)
-  const [mobileVerified, setMobileVerified] = useState(false)
+  // TODO: Uncomment after DLT registration is complete
+  // const [mobileVerified, setMobileVerified] = useState(false)
+  const [mobileVerified] = useState(true)
 
   const dobError = (() => {
     const { day, month, year } = formData
@@ -86,8 +89,9 @@ function InstantApplyContent() {
     formData.mobileNumber.length === 10 &&
     isDobValid &&
     formData.consentPersonalData &&
-    formData.consentPerfios &&
-    mobileVerified
+    formData.consentPerfios
+    // TODO: Uncomment after DLT registration is complete
+    // && mobileVerified
   )
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -235,9 +239,10 @@ function InstantApplyContent() {
                   <label className="form-field-label">Mobile Number <span className="required-asterisk">*</span></label>
                   <div className="mobile-input-wrapper">
                     <span className="country-code">+91</span>
-                    <input type="tel" name="mobileNumber" className="form-input-mobile" placeholder="Enter 10-digit number" value={formData.mobileNumber} onChange={(e) => { handleChange(e); setMobileVerified(false) }} maxLength={10} required />
+                    <input type="tel" name="mobileNumber" className="form-input-mobile" placeholder="Enter 10-digit number" value={formData.mobileNumber} onChange={handleChange} maxLength={10} required />
                   </div>
-                  <OtpVerification mobile={formData.mobileNumber} onVerified={() => setMobileVerified(true)} verified={mobileVerified} />
+                  {/* TODO: Uncomment after DLT registration is complete
+                  <OtpVerification mobile={formData.mobileNumber} onVerified={() => setMobileVerified(true)} verified={mobileVerified} /> */}
                 </div>
                 <div className="form-field-group">
                   <label className="form-field-label">Email</label>

@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import OtpVerification from '@/components/OtpVerification'
+// TODO: Uncomment after DLT registration is complete
+// import OtpVerification from '@/components/OtpVerification'
 
 interface BankInfo {
   name: string
@@ -29,7 +30,9 @@ export default function QuickApplyForm({ bankId, bank, loanTypeSlug, loanLabel }
     pincode: '',
   })
 
-  const [mobileVerified, setMobileVerified] = useState(false)
+  // TODO: Uncomment after DLT registration is complete
+  // const [mobileVerified, setMobileVerified] = useState(false)
+  const [mobileVerified] = useState(true)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isApplied, setIsApplied] = useState(false)
 
@@ -50,8 +53,9 @@ export default function QuickApplyForm({ bankId, bank, loanTypeSlug, loanLabel }
     formData.dob &&
     formData.mobileNumber.length === 10 &&
     formData.city.trim() &&
-    formData.pincode.length >= 5 &&
-    mobileVerified
+    formData.pincode.length >= 5
+    // TODO: Uncomment after DLT registration is complete
+    // && mobileVerified
   )
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -184,10 +188,7 @@ export default function QuickApplyForm({ bankId, bank, loanTypeSlug, loanLabel }
                   className="qf-input"
                   placeholder="9876543210"
                   value={formData.mobileNumber}
-                  onChange={(e) => {
-                    handleChange(e)
-                    setMobileVerified(false)
-                  }}
+                  onChange={handleChange}
                   maxLength={10}
                   required
                 />
@@ -205,6 +206,7 @@ export default function QuickApplyForm({ bankId, bank, loanTypeSlug, loanLabel }
               </div>
             </div>
 
+            {/* TODO: Uncomment after DLT registration is complete
             <div className="qf-otp-row">
               <OtpVerification
                 mobile={formData.mobileNumber}
@@ -212,7 +214,7 @@ export default function QuickApplyForm({ bankId, bank, loanTypeSlug, loanLabel }
                 verified={mobileVerified}
                 className="qf-otp"
               />
-            </div>
+            </div> */}
 
             <div className="qf-row">
               <div className="qf-field">

@@ -2,7 +2,8 @@
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import OtpVerification from '@/components/OtpVerification'
+// TODO: Uncomment after DLT registration is complete
+// import OtpVerification from '@/components/OtpVerification'
 import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
@@ -48,7 +49,9 @@ export default function ApplyForLoanPage() {
     message: '',
   })
   const [documents, setDocuments] = useState<File[]>([])
-  const [mobileVerified, setMobileVerified] = useState(false)
+  // TODO: Uncomment after DLT registration is complete
+  // const [mobileVerified, setMobileVerified] = useState(false)
+  const [mobileVerified] = useState(true)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState('')
 
@@ -59,7 +62,8 @@ export default function ApplyForLoanPage() {
     let cleaned = value
     if (name === 'phone') {
       cleaned = value.replace(/\D/g, '').slice(0, 10)
-      if (cleaned !== formData.phone) setMobileVerified(false)
+      // TODO: Uncomment after DLT registration is complete
+      // if (cleaned !== formData.phone) setMobileVerified(false)
     }
     if (name === 'pincode') cleaned = value.replace(/\D/g, '').slice(0, 6)
     if (name === 'panNumber') cleaned = value.toUpperCase().slice(0, 10)
@@ -72,7 +76,6 @@ export default function ApplyForLoanPage() {
   const isFormValid =
     formData.name.trim().length >= 2 &&
     formData.phone.replace(/\D/g, '').length === 10 &&
-    mobileVerified &&
     formData.loanType !== '' &&
     formData.loanAmount !== '' &&
     formData.employmentType !== '' &&
@@ -114,7 +117,8 @@ export default function ApplyForLoanPage() {
           message: '',
         })
         setDocuments([])
-        setMobileVerified(false)
+        // TODO: Uncomment after DLT registration is complete
+        // setMobileVerified(false)
       } else {
         setSubmitMessage(data.error || t('apply.errorMessage'))
       }
@@ -260,15 +264,15 @@ export default function ApplyForLoanPage() {
                             onChange={handleChange}
                             maxLength={10}
                             required
-                            disabled={mobileVerified}
                           />
                         </div>
+                        {/* TODO: Uncomment after DLT registration is complete
                         <OtpVerification
                           mobile={formData.phone}
                           onVerified={() => setMobileVerified(true)}
                           verified={mobileVerified}
                           className="loan-otp-block"
-                        />
+                        /> */}
                       </div>
                     </div>
 
@@ -517,9 +521,10 @@ export default function ApplyForLoanPage() {
                       {isSubmitting ? t('apply.submitting') : t('apply.applyNow')}
                     </button>
 
+                    {/* TODO: Uncomment after DLT registration is complete
                     {!mobileVerified && formData.phone.replace(/\D/g, '').length === 10 && (
                       <p className="form-otp-reminder">Please verify your phone number above to enable submission</p>
-                    )}
+                    )} */}
                   </form>
                 </div>
               </div>
