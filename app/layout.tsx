@@ -19,7 +19,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Zineegroup - Fastest Way To Get Money',
+  title: 'Helloans - Fastest Way To Get Money',
   description: 'Providing the best future for your best living. Get instant loans, personal loans, business loans, and more.',
 }
 
