@@ -7,7 +7,7 @@ import Footer from '@/components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Personal Loan Calculator | Zineegroup',
+  title: 'Personal Loan Calculator | Helloans',
   description: 'Calculate your personal loan EMI with our easy-to-use calculator. Apply for personal loans up to ₹50 lakhs.',
 }
 

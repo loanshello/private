@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Overdraft Calculator | Zineegroup',
+    title: 'Overdraft Calculator | Helloans',
     description: 'Calculate your overdraft interest and limits. Get instant liquidity for your financial needs.',
 }
 

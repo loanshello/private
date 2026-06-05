@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Used Car Loan Calculator | Zineegroup',
+  title: 'Used Car Loan Calculator | Helloans',
   description: 'Calculate used car loan EMI. Compare offers from banks and NBFCs for pre-owned car financing.',
 }
 

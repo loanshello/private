@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Loan Against Property Calculator | Zineegroup',
+  title: 'Loan Against Property Calculator | Helloans',
   description: 'Calculate Loan Against Property EMI with low interest rates. Leverage your property for better loan terms.',
 }
 

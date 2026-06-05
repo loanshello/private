@@ -11,6 +11,22 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'zineegroup.com' }],
+        destination: 'https://www.helloans.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.zineegroup.com' }],
+        destination: 'https://www.helloans.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {

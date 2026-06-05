@@ -5,7 +5,7 @@ import { bankOffers } from '@/data/bankOffers'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Credit Cards | Zineegroup',
+    title: 'Credit Cards | Helloans',
     description: 'Compare and apply for the best credit cards tailored to your lifestyle and spending habits.',
 }
 

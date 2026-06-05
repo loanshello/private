@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Balance Transfer Loan Calculator | Zineegroup',
+  title: 'Balance Transfer Loan Calculator | Helloans',
   description: 'Transfer your existing loan and save on interest. Calculate your new EMI after balance transfer.',
 }
 

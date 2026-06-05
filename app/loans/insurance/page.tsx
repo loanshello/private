@@ -5,7 +5,7 @@ import { bankOffers } from '@/data/bankOffers'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Insurance | Zineegroup',
+    title: 'Insurance | Helloans',
     description: 'Protect your future with our comprehensive insurance plans covering health, life, and more.',
 }
 

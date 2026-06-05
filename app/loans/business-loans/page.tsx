@@ -7,7 +7,7 @@ import Footer from '@/components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Business Loan Calculator | Zineegroup',
+  title: 'Business Loan Calculator | Helloans',
   description: 'Calculate your business loan EMI. Get business loans to expand your business with competitive interest rates.',
 }
 

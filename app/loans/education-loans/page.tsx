@@ -5,7 +5,7 @@ import { bankOffers } from '@/data/bankOffers'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Education Loans | Zineegroup',
+    title: 'Education Loans | Helloans',
     description: 'Fund your higher education dreams with our student-friendly education loan options.',
 }
 
